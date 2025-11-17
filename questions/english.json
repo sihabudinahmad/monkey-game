@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "SOAL": "The main purpose of a Recount Text is to...",
+        "JAWABAN_A": "Persuade the reader",
+        "JAWABAN_B": "Entertain with fiction",
+        "JAWABAN_C": "Retell past events",
+        "JAWABAN_D": "Describe a place",
+        "KUNCI": "C"
+    },
+    {
+        "id": 2,
+        "SOAL": "The section of a Recount Text that introduces participants, time, and setting is called...",
+        "JAWABAN_A": "Complication",
+        "JAWABAN_B": "Orientation",
+        "JAWABAN_C": "Resolution",
+        "JAWABAN_D": "Coda",
+        "KUNCI": "B"
+    },
+    {
+        "id": 3,
+        "SOAL": "Which tense is predominantly used in Recount Text?",
+        "JAWABAN_A": "Simple Present Tense",
+        "JAWABAN_B": "Simple Future Tense",
+        "JAWABAN_C": "Simple Past Tense",
+        "JAWABAN_D": "Present Continuous Tense",
+        "KUNCI": "C"
+    },
+    {
+        "id": 4,
+        "SOAL": "The part of the text that summarizes the writer's personal comments or feeling is the...",
+        "JAWABAN_A": "Orientation",
+        "JAWABAN_B": "Sequence of Events",
+        "JAWABAN_C": "Reorientation",
+        "JAWABAN_D": "Climax",
+        "KUNCI": "C"
+    },
+    {
+        "id": 5,
+        "SOAL": "Which of these is NOT a temporal conjunction (time connector)?",
+        "JAWABAN_A": "Finally",
+        "JAWABAN_B": "Therefore",
+        "JAWABAN_C": "Afterwards",
+        "JAWABAN_D": "Then",
+        "KUNCI": "B"
+    },
+    {
+        "id": 6,
+        "SOAL": "In the sentence 'She **walked** quickly to the station,' 'walked' is an example of an...",
+        "JAWABAN_A": "Adverb",
+        "JAWABAN_B": "Action Verb",
+        "JAWABAN_C": "Auxiliary Verb",
+        "JAWABAN_D": "Adjective",
+        "KUNCI": "B"
+    },
+    {
+        "id": 7,
+        "SOAL": "Which type of Recount Text tells about historical events?",
+        "JAWABAN_A": "Personal Recount",
+        "JAWABAN_B": "Factual Recount",
+        "JAWABAN_C": "Imaginative Recount",
+        "JAWABAN_D": "Procedural Recount",
+        "KUNCI": "B"
+    },
+    {
+        "id": 8,
+        "SOAL": "Which sentence structure is typical for Simple Past Tense?",
+        "JAWABAN_A": "Subject + Verb 1",
+        "JAWABAN_B": "Subject + Verb 2",
+        "JAWABAN_C": "Subject + is/am/are + V-ing",
+        "JAWABAN_D": "Subject + will + Verb 1",
+        "KUNCI": "B"
+    },
+    {
+        "id": 9,
+        "SOAL": "A diary entry is typically considered a form of...",
+        "JAWABAN_A": "Factual Recount",
+        "JAWABAN_B": "Personal Recount",
+        "JAWABAN_C": "Hortatory Exposition",
+        "JAWABAN_D": "Discussion Text",
+        "KUNCI": "B"
+    },
+    {
+        "id": 10,
+        "SOAL": "What is the second component in the structure: Orientation, Sequence of Events, Reorientation?",
+        "JAWABAN_A": "Orientation",
+        "JAWABAN_B": "Sequence of Events",
+        "JAWABAN_C": "Reorientation",
+        "JAWABAN_D": "Conclusion",
+        "KUNCI": "B"
+    }
+]

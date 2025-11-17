@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Bahasa Indonesia",
+        "filename": "indo.json",
+        "description": "Menguji pemahaman Teks"
+    },
+    {
+        "name": "Matematika Dasar",
+        "filename": "math.json",
+        "description": "Menguji aritmatika dasar"
+    },
+    {
+        "name": "Bahasa Inggris (Recount)",
+        "filename": "english.json",
+        "description": "Menguji Teks Rekon"
+    }
+]

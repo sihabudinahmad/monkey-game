@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "SOAL": "Berapakah hasil dari $7 \\times (4 + 3) - 5$?",
+        "JAWABAN_A": "44",
+        "JAWABAN_B": "49",
+        "JAWABAN_C": "54",
+        "JAWABAN_D": "59",
+        "KUNCI": "A"
+    },
+    {
+        "id": 2,
+        "SOAL": "Jika $3x + 5 = 20$, berapakah nilai $x$?",
+        "JAWABAN_A": "3",
+        "JAWABAN_B": "5",
+        "JAWABAN_C": "8",
+        "JAWABAN_D": "10",
+        "KUNCI": "B"
+    },
+    {
+        "id": 3,
+        "SOAL": "Bentuk pecahan sederhana dari $\\frac{15}{25}$ adalah...",
+        "JAWABAN_A": "$\\frac{1}{2}$",
+        "JAWABAN_B": "$\\frac{3}{5}$",
+        "JAWABAN_C": "$\\frac{5}{8}$",
+        "JAWABAN_D": "$\\frac{7}{10}$",
+        "KUNCI": "B"
+    },
+    {
+        "id": 4,
+        "SOAL": "Keliling lingkaran dengan jari-jari $7$ cm adalah... (gunakan $\\pi = \\frac{22}{7}$)",
+        "JAWABAN_A": "22 cm",
+        "JAWABAN_B": "44 cm",
+        "JAWABAN_C": "154 cm²",
+        "JAWABAN_D": "14 cm",
+        "KUNCI": "B"
+    },
+    {
+        "id": 5,
+        "SOAL": "Bilangan prima terkecil adalah...",
+        "JAWABAN_A": "0",
+        "JAWABAN_B": "1",
+        "JAWABAN_C": "2",
+        "JAWABAN_D": "3",
+        "KUNCI": "C"
+    },
+    {
+        "id": 6,
+        "SOAL": "Berapakah $\\sqrt{144}$?",
+        "JAWABAN_A": "10",
+        "JAWABAN_B": "11",
+        "JAWABAN_C": "12",
+        "JAWABAN_D": "13",
+        "KUNCI": "C"
+    },
+    {
+        "id": 7,
+        "SOAL": "Perbandingan antara $4$ jam dan $120$ menit adalah...",
+        "JAWABAN_A": "1:1",
+        "JAWABAN_B": "2:1",
+        "JAWABAN_C": "4:1",
+        "JAWABAN_D": "1:3",
+        "KUNCI": "B"
+    },
+    {
+        "id": 8,
+        "SOAL": "Jika sebuah dadu dilempar, peluang muncul mata dadu genap adalah...",
+        "JAWABAN_A": "$\\frac{1}{6}$",
+        "JAWABAN_B": "$\\frac{1}{3}$",
+        "JAWABAN_C": "$\\frac{1}{2}$",
+        "JAWABAN_D": "$\\frac{2}{3}$",
+        "KUNCI": "C"
+    },
+    {
+        "id": 9,
+        "SOAL": "Hasil dari $(-8) + 15$ adalah...",
+        "JAWABAN_A": "-7",
+        "JAWABAN_B": "7",
+        "JAWABAN_C": "23",
+        "JAWABAN_D": "-23",
+        "KUNCI": "B"
+    },
+    {
+        "id": 10,
+        "SOAL": "Volume kubus dengan panjang rusuk $5$ cm adalah...",
+        "JAWABAN_A": "$25 \\text{ cm}^3$",
+        "JAWABAN_B": "$125 \\text{ cm}^3$",
+        "JAWABAN_C": "$50 \\text{ cm}^3$",
+        "JAWABAN_D": "$150 \\text{ cm}^3$",
+        "KUNCI": "B"
+    }
+]

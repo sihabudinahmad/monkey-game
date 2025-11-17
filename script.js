@@ -35,6 +35,8 @@ const optionsContainerP1 = document.getElementById('options-p1');
 const qDisplayP2 = document.getElementById('q-p2');
 const optionsContainerP2 = document.getElementById('options-p2');
 
+const lessonTopicSelect = document.getElementById('lesson-topic');
+
 // Audio Elements
 const audioBGM = document.getElementById('audio-bgm');
 const audioCorrect = document.getElementById('audio-correct');
