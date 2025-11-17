@@ -17,7 +17,7 @@ let gameActive = false;
 const startOverlay = document.getElementById('start-overlay');
 const resultOverlay = document.getElementById('result-overlay');
 const startGameBtn = document.getElementById('start-game-btn');
-const timeLeftEl = document.getElementById('time-left');
+const timer = document.getElementById('timer');
 
 const monkeyP1 = document.getElementById('monkey-p1');
 const monkeyP2 = document.getElementById('monkey-p2');
@@ -182,8 +182,7 @@ function updateScoreUI(player) {
 /**
  * ⏳ Mengelola timer permainan
  */
-    /** Memulai countdown timer. */
-    function startTimer() {
+ function startTimer() {
         let timeLeft = TIME_LIMIT;
         const timerEl = document.getElementById('timer');
         
@@ -198,12 +197,12 @@ function updateScoreUI(player) {
         timerInterval = setInterval(() => {
             timeLeft--;
             updateTimerDisplay();
-
-            if (timeLeft <= 0) {
+             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
                 // Waktu habis, cek pemenang
-                checkWinCondition(true); 
+                endGame();
             }
+             
         }, 1000);
     }
 
@@ -256,7 +255,7 @@ function endGame(winner) {
     
     audioBGM.pause();
     audioBGM.currentTime = 0;
-    
+
     // Tampilkan overlay hasil
     resultOverlay.classList.add('active');
 }
