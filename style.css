@@ -1,0 +1,201 @@
+/* Styling Umum */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Mencegah scroll saat monyet naik/turun */
+}
+
+/* Background Hutan */
+#game-container {
+    width: 100%;
+    height: 100vh;
+    max-width: 1200px;
+    background-image: url('assets/background.jpeg'); /* Pastikan path ini benar! */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Overlay/Narasi */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.narration-box {
+    background-color: #38761d; /* Warna hijau hutan */
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.narration-box button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #f1c232; /* Kuning pisang */
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.narration-box button:hover {
+    background-color: #ffd966;
+}
+
+/* UI Header (Skor dan Timer) */
+.header-ui {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1.2em;
+    z-index: 50;
+}
+
+.score-board {
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.score-board.p1 { background-color: #3c78d8; } /* Biru */
+.score-board.p2 { background-color: #cc0000; } /* Merah */
+ 
+ #target-text {
+    font-weight: bold;
+    color: #ffd966; /* Kuning */
+}
+/* Timer Style */
+    #timer {
+        font-size: 2em;
+        font-weight: bold;
+        color: #d32f2f;
+        margin: 15px 0;
+        padding: 5px 15px;
+        border: 2px solid #d32f2f;
+        border-radius: 5px;
+    }
+
+/* Area Pohon */
+#tree-area {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#tree {
+    position: absolute;
+    bottom: 0;
+    height: 90%; /* Sesuaikan tinggi pohon */
+    z-index: 10;
+}
+
+#banana-target {
+    position: absolute;
+    top: 5%; /* Posisi Pisang Emas di puncak */
+    width: 50px;
+    height: 50px;
+    z-index: 15;
+}
+
+/* Monyet */
+.monkey {
+    position: absolute;
+    bottom: 0%; /* Posisi awal di bawah */
+    width: 80px; /* Lebar monyet */
+    height: 80px; /* Tinggi monyet */
+    transition: bottom 0.5s ease-in-out; /* Efek memanjat yang halus */
+    z-index: 20;
+}
+
+.monkey img {
+    width: 100%;
+    height: 100%;
+}
+
+#monkey-p1 {
+    left: calc(50% - 150px); /* Posisi P1 di kiri pohon */
+}
+
+#monkey-p2 {
+    right: calc(50% - 150px); /* Posisi P2 di kanan pohon */
+}
+
+/* Area Soal */
+#question-area {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 50;
+    min-height: 200px;
+}
+
+.player-box {
+    width: 45%;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.question-display {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    min-height: 50px;
+}
+
+.options-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: left;
+    background-color: #555;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.options-container button:hover {
+    background-color: #777;
+}
+
+.options-container button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

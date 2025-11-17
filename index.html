@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miko si Monyet Cerdas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="start-overlay" class="overlay active">
+        <div class="narration-box">
+            <h1>Miko si Monyet Cerdas 🐒🍌</h1>
+            <p>"Halo! Aku Miko si monyet cerdas 🍌 Aku sedang memanjat pohon untuk mendapatkan pisang emas. Tapi setiap kali aku salah menjawab soal, aku bisa jatuh! Tolong bantu aku menjawab dengan benar agar aku bisa sampai ke puncak pohon!"</p>
+            <button id="start-game-btn">Mulai Game</button>
+        </div>
+    </div>
+    
+    <div id="game-container">
+        
+        <div class="header-ui">
+            <div id="score-p1" class="score-board p1">Pemain 1: <span class="score-val">0</span></div>
+             <div id="timer">00:00</div>
+            <div id="score-p2" class="score-board p2">Pemain 2: <span class="score-val">0</span></div>
+        </div>
+
+        <div id="tree-area">
+            <img src="assets/tree.png" alt="Pohon Tinggi" id="tree">
+            <img src="assets/banana.png" alt="Pisang Emas di Puncak" id="banana-target">
+
+            <div id="monkey-p1" class="monkey p1">
+                <img src="assets/monkey.png" alt="Monyet P1">
+            </div>
+
+            <div id="monkey-p2" class="monkey p2">
+                <img src="assets/monkey.png" alt="Monyet P2">
+            </div>
+        </div>
+        
+        <div id="question-area">
+            
+            <div id="player-1-box" class="player-box">
+                <h2>Pemain 1</h2>
+                <div class="question-display" id="q-p1">Soal P1 akan muncul di sini...</div>
+                <div class="options-container" id="options-p1">
+                    </div>
+            </div>
+
+            <div id="player-2-box" class="player-box">
+                <h2>Pemain 2</h2>
+                <div class="question-display" id="q-p2">Soal P2 akan muncul di sini...</div>
+                <div class="options-container" id="options-p2">
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="result-overlay" class="overlay">
+        <div class="narration-box">
+            <h1 id="result-message">Hasil Permainan</h1>
+            <p id="final-score-p1">Pemain 1 Skor: 0</p>
+            <p id="final-score-p2">Pemain 2 Skor: 0</p>
+            <button onclick="location.reload()">Main Lagi</button>
+        </div>
+    </div>
+
+    <div id="audio-container">
+        <audio id="audio-correct" src="assets/correct.mp3"></audio>
+        <audio id="audio-wrong" src="assets/wrong.mp3"></audio>
+        <audio id="audio-win" src="assets/win.mp3"></audio>
+        <audio id="audio-draw" src="assets/draw.mp3"></audio>
+        <audio id="audio-timeout" src="assets/timeout.mp3"></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

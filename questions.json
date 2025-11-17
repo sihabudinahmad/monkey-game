@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "question": "Struktur teks rekon yang berisi pengenalan tokoh, tempat, dan waktu disebut...",
+        "options": ["A. Orientasi", "B. Peristiwa", "C. Reorientasi", "D. Komplikasi"],
+        "answer": "A. Orientasi"
+    },
+    {
+        "id": 2,
+        "question": "Bagian yang berisi urutan kejadian atau pengalaman disebut...",
+        "options": ["A. Orientasi", "B. Reorientasi", "C. Peristiwa", "D. Latar"],
+        "answer": "C. Peristiwa"
+    },
+    {
+        "id": 3,
+        "question": "Ciri kebahasaan utama teks rekon adalah penggunaan tenses...",
+        "options": ["A. Present Tense", "B. Future Tense", "C. Past Tense", "D. Present Continuous"],
+        "answer": "C. Past Tense"
+    },
+    {
+        "id": 4,
+        "question": "Fungsi sosial teks rekon adalah...",
+        "options": ["A. Menghibur pembaca", "B. Memberi instruksi", "C. Melaporkan peristiwa", "D. Menceritakan kembali pengalaman"],
+        "answer": "D. Menceritakan kembali pengalaman"
+    },
+    {
+        "id": 5,
+        "question": "Contoh konjungsi waktu yang sering digunakan dalam teks rekon, kecuali...",
+        "options": ["A. After that", "B. Finally", "C. Today", "D. Then"],
+        "answer": "C. Today"
+    },
+    {
+        "id": 6,
+        "question": "Jika teks rekon diakhiri dengan pandangan pribadi penulis, bagian itu disebut...",
+        "options": ["A. Orientation", "B. Sequence of Events", "C. Reorientation", "D. Conclusion"],
+        "answer": "C. Reorientation"
+    },
+    {
+        "id": 7,
+        "question": "Kata kerja tindakan (Action Verb) adalah kata kerja yang menunjukkan...",
+        "options": ["A. Sifat", "B. Keadaan", "C. Kegiatan Fisik/Mental", "D. Keterangan Waktu"],
+        "answer": "C. Kegiatan Fisik/Mental"
+    },
+    {
+        "id": 8,
+        "question": "Teks rekon yang menceritakan perjalanan liburan pribadi termasuk jenis...",
+        "options": ["A. Faktual Rekon", "B. Imajinatif Rekon", "C. Personal Rekon", "D. Historis Rekon"],
+        "answer": "C. Personal Rekon"
+    },
+    {
+        "id": 9,
+        "question": "Dalam kalimat 'I **visited** my grandma yesterday', kata 'visited' adalah contoh dari...",
+        "options": ["A. Action Verb", "B. Adjective", "C. Noun", "D. Adverb of Time"],
+        "answer": "A. Action Verb"
+    },
+    {
+        "id": 10,
+        "question": "Pola kalimat yang umum digunakan untuk Simple Past Tense adalah...",
+        "options": ["A. Subject + Verb 1", "B. Subject + to be (is/am/are) + V-ing", "C. Subject + Verb 2", "D. Subject + Has/Have + Verb 3"],
+        "answer": "C. Subject + Verb 2"
+    }
+]
