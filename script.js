@@ -30,6 +30,7 @@ const qDisplayP2 = document.getElementById('q-p2');
 const optionsContainerP2 = document.getElementById('options-p2');
 
 // Audio Elements
+const audioBGM = document.getElementById('audio-bgm');
 const audioCorrect = document.getElementById('audio-correct');
 const audioWrong = document.getElementById('audio-wrong');
 const audioWin = document.getElementById('audio-win');
@@ -253,6 +254,9 @@ function endGame(winner) {
         playSound(finalSound);
     }
     
+    audioBGM.pause();
+    audioBGM.currentTime = 0;
+    
     // Tampilkan overlay hasil
     resultOverlay.classList.add('active');
 }
@@ -273,6 +277,10 @@ function startGame() {
     updateMonkeyPosition('p2');
     updateScoreUI('p1');
     updateScoreUI('p2');
+
+    // --- LOGIKA BGM BARU ---
+    audioBGM.volume = 0.5; // Atur volume agar tidak terlalu keras
+    audioBGM.play().catch(e => console.warn("Background music play failed:", e)); // Mulai BGM
 
     // Mulai timer
     startTimer();
