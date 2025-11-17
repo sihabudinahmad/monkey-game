@@ -3,15 +3,21 @@ const MAX_LEVEL = 10; // Tujuan akhir: Capai level 10
 const TIME_LIMIT = 90; // Durasi waktu dalam detik
 const LEVEL_STEP_PERCENT = 8; // Persentase kenaikan/penurunan posisi monyet per level (disesuaikan dengan visual pohon)
 const START_BOTTOM_PERCENT = 5; // Posisi awal monyet
+const TOTAL_QUESTIONS_PER_PLAYER = 10;
+
 
 // State Game
 let playerLevels = { p1: 0, p2: 0 };
 let playerScores = { p1: 0, p2: 0 };
 let currentQuestions = { p1: null, p2: null };
+let questionsCompleted = { p1: 0, p2: 0 };
 let availableQuestions = [];
 let gameTimer;
 let timeLeft = TIME_LIMIT;
 let gameActive = false;
+let availableQuestionsP1 = []; // <-- Pool soal khusus untuk Pemain 1
+let availableQuestionsP2 = []; // <-- Pool soal khusus untuk Pemain 2
+let masterQuestionPool = [];   // <-- Pool utama yang dimuat dari JSON
 
 // Elemen DOM
 const startOverlay = document.getElementById('start-overlay');
@@ -50,10 +56,14 @@ function playSound(audioEl) {
  * 💾 Mengambil dan memuat data soal dari questions.json
  */
 async function loadQuestions() {
-    try {
+  try {
         const response = await fetch('questions.json');
         const data = await response.json();
-        availableQuestions = data;
+        
+        masterQuestionPool = data;
+
+        availableQuestionsP1 = [...masterQuestionPool]; 
+        availableQuestionsP2 = [...masterQuestionPool];
     } catch (error) {
         console.error('Gagal memuat soal:', error);
         qDisplayP1.innerHTML = 'Gagal memuat soal. Cek console.';
@@ -65,18 +75,23 @@ async function loadQuestions() {
  * @param {string} player - 'p1' atau 'p2'
  */
 function getNewQuestion(player) {
-    if (availableQuestions.length === 0) {
-        // Jika soal habis, ulangi soal dari awal (opsional)
-        loadQuestions(); 
-        return;
+    // Tentukan pool soal yang akan digunakan
+    const playerPool = player === 'p1' ? availableQuestionsP1 : availableQuestionsP2;
+    
+    // Cek apakah soal di pool pemain masih ada
+    if (playerPool.length === 0) {
+        // Ini seharusnya tidak terjadi jika soal sudah selesai, 
+        // tapi sebagai safety net:
+        console.warn(`${player} telah menyelesaikan semua soal!`);
+        return; 
     }
 
-    // Pilih soal secara acak
-    const randomIndex = Math.floor(Math.random() * availableQuestions.length);
-    const question = availableQuestions[randomIndex];
+    // Pilih soal secara acak dari pool pemain
+    const randomIndex = Math.floor(Math.random() * playerPool.length);
+    const question = playerPool[randomIndex];
 
-    // Hapus soal dari daftar agar tidak diulang
-    availableQuestions.splice(randomIndex, 1); 
+    // Hapus soal dari daftar pool pemain
+    playerPool.splice(randomIndex, 1); // <--- HANYA MENGHAPUS DARI POOL PEMAIN ITU
 
     // Simpan soal yang sedang aktif
     currentQuestions[player] = question; 
@@ -125,32 +140,48 @@ function handleAnswer(event) {
     const options = player === 'p1' ? optionsContainerP1 : optionsContainerP2;
     Array.from(options.children).forEach(btn => btn.disabled = true);
 
+    // LOGIKA SKOR DAN LEVEL (tetap sama)
     if (selectedAnswer === currentQ.answer) {
-        // Jawaban Benar: Monyet naik 1 tingkat
         playerLevels[player]++;
         playerScores[player]++;
         updateMonkeyPosition(player);
         updateScoreUI(player);
         playSound(audioCorrect);
-
-        // Beri umpan balik visual singkat
-        button.style.backgroundColor = '#6aa84f'; // Hijau
-
-        // Cek Kemenangan
-        if (playerLevels[player] >= MAX_LEVEL) {
-            endGame(player);
-            return;
-        }
-
+        button.style.backgroundColor = '#6aa84f';
     } else {
-        // Jawaban Salah: Monyet turun 1 tingkat
-        playerLevels[player] = Math.max(0, playerLevels[player] - 1); // Tidak bisa turun di bawah 0
+        playerLevels[player] = Math.max(0, playerLevels[player] - 1);
         updateMonkeyPosition(player);
         playSound(audioWrong);
-
-        // Beri umpan balik visual singkat
-        button.style.backgroundColor = '#cc0000'; // Merah
+        button.style.backgroundColor = '#cc0000';
     }
+
+    // --- LOGIKA BARU UNTUK PELACAKAN SOAL ---
+    questionsCompleted[player]++;
+
+    // Cek Kemenangan Langsung (Mencapai puncak)
+    if (playerLevels[player] >= MAX_LEVEL) {
+        endGame(player);
+        return;
+    }
+    
+    // Cek Apakah Pemain Sudah Menyelesaikan Semua Soal (10 soal)
+    if (questionsCompleted[player] >= TOTAL_QUESTIONS_PER_PLAYER) {
+        const playerBox = document.getElementById(`player-${player.slice(-1)}-box`);
+        const qDisplay = player === 'p1' ? qDisplayP1 : qDisplayP2;
+        const optionsContainer = player === 'p1' ? optionsContainerP1 : optionsContainerP2;
+        
+        qDisplay.innerHTML = `✅ Soal Selesai!`;
+        optionsContainer.innerHTML = `<p class="waiting-message">Silakan menunggu pemain lawan selesai mengerjakan ${TOTAL_QUESTIONS_PER_PLAYER} soal.</p>`;
+        
+        // Cek apakah kedua pemain sudah selesai
+        if (questionsCompleted.p1 >= TOTAL_QUESTIONS_PER_PLAYER && questionsCompleted.p2 >= TOTAL_QUESTIONS_PER_PLAYER) {
+            // Jika kedua pemain selesai, akhiri game dan tentukan pemenang berdasarkan level
+            endGame('draw_by_completion');
+        }
+        
+        return; // Hentikan proses jika soal sudah selesai
+    }
+    // ------------------------------------------
 
     // Tunda sebentar sebelum memuat soal baru
     setTimeout(() => {
@@ -199,8 +230,7 @@ function updateScoreUI(player) {
             updateTimerDisplay();
              if (timeLeft <= 0) {
                 clearInterval(timerInterval);
-                // Waktu habis, cek pemenang
-                endGame();
+                endGame('timeout'); // Akhiri karena waktu habis
             }
              
         }, 1000);
@@ -240,7 +270,19 @@ function endGame(winner) {
             message = 'WAKTU HABIS! Permainan Berakhir SERI! 🤝';
             finalSound = audioDraw;
         }
-    } else if (winner === 'draw') {
+    } else if (winner === 'draw_by_completion') { // <--- KASUS BARU
+        
+        if (playerLevels.p1 > playerLevels.p2) {
+            message = `SEMUA SOAL SELESAI! Pemain 1 Menang Berdasarkan Posisi Tertinggi (${playerLevels.p1} tingkat)! 🥇`;
+            finalSound = audioWin;
+        } else if (playerLevels.p2 > playerLevels.p1) {
+            message = `SEMUA SOAL SELESAI! Pemain 2 Menang Berdasarkan Posisi Tertinggi (${playerLevels.p2} tingkat)! 🥇`;
+            finalSound = audioWin;
+        } else {
+            message = 'SEMUA SOAL SELESAI! Permainan Berakhir SERI! 🤝';
+            finalSound = audioDraw;
+        }
+    }else if (winner === 'draw') {
         message = 'Permainan Berakhir SERI! 🤝';
         finalSound = audioDraw;
     }
@@ -276,11 +318,19 @@ function startGame() {
     updateMonkeyPosition('p2');
     updateScoreUI('p1');
     updateScoreUI('p2');
+    questionsCompleted = { p1: 0, p2: 0 }; // <--- RESET BARU
 
     // --- LOGIKA BGM BARU ---
     audioBGM.volume = 0.5; // Atur volume agar tidak terlalu keras
     audioBGM.play().catch(e => console.warn("Background music play failed:", e)); // Mulai BGM
 
+    availableQuestionsP1 = [...masterQuestionPool]; 
+    availableQuestionsP2 = [...masterQuestionPool];
+    // Jika masterQuestionPool belum terisi, panggil loadQuestions() lagi.
+    if (masterQuestionPool.length === 0) {
+        loadQuestions().then(startGame); // Muat soal, lalu panggil startGame lagi.
+        return;
+    }
     // Mulai timer
     startTimer();
     
