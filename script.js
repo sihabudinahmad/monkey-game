@@ -1,6 +1,6 @@
 // Konfigurasi Game
 const MAX_LEVEL = 10; // Tujuan akhir: Capai level 10
-const TIME_LIMIT = 90; // Durasi waktu dalam detik
+const TIME_LIMIT = 120; // Durasi waktu dalam detik
 const LEVEL_STEP_PERCENT = 8; // Persentase kenaikan/penurunan posisi monyet per level (disesuaikan dengan visual pohon)
 const START_BOTTOM_PERCENT = 5; // Posisi awal monyet
 const TOTAL_QUESTIONS_PER_PLAYER = 10;
